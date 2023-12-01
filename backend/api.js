@@ -6,7 +6,7 @@ export const fetchDataForTable = async (tableName) => {
     const jsonData = await response.json();
     return jsonData;
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error while fetching data:', error);
     throw error;
   }
 };
