@@ -59,8 +59,8 @@ const DetailsScreen = ({navigation, route}) => {
 							onPress={() => Linking.openURL(place.location)}>
 							<Icon name="place" size={28} color={COLORS.primary} />
 					</TouchableOpacity>
-          <Text style={{marginTop: 5, fontWeight: 'bold', fontSize: 20}}>
-              About the trip
+          <Text style={{ marginTop: -15, padding:10, fontWeight: 'bold', fontSize: 20}}>
+              Information <Icon name="info-outline" size={28} color={COLORS.primary} />
           </Text>
         </View>
         <Text
@@ -82,7 +82,7 @@ const DetailsScreen = ({navigation, route}) => {
               fontWeight: 'bold',
               color: COLORS.white,
             }}>
-            $100
+            Rs. 2100
           </Text>
           <Text
             style={{

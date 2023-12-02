@@ -7,17 +7,18 @@ import {
 	View,
 	Text,
 	TextInput,
-	ImageBackground,
 	FlatList,
-	Dimensions,
-	TouchableOpacity,
-	Linking
+	Dimensions
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
+
 // import places from '../../consts/places';
 import countries from '../../consts/countries';
+import hotels from '../../consts/hotels';
 import style from '../styles/homeScreenStyles';
+
+import Card from '../cards/Card';
 import RecommendedCard from '../cards/RecommendedCard';
 
 const {width} = Dimensions.get('screen');
@@ -40,7 +41,8 @@ const HomeScreen = ({navigation}) => {
 
 	const categoryIcons = [
 		<Icon name="flight" size={35} color={COLORS.primary} />,
-		<Icon name="hotel" size={35} color={COLORS.primary} />,
+		<Icon name="hotel" size={35} color={COLORS.primary} activeOpacity={0.8}
+		onPress={() => navigation.navigate('HotelListScreen', hotels)}/>,
 		<Icon name="near-me" size={35} color={COLORS.primary} />,
 		<Icon name="place" size={35} color={COLORS.primary} />,
 	];
@@ -53,44 +55,6 @@ const HomeScreen = ({navigation}) => {
 					</View>
 				))}
 			</View>
-		);
-	};
-
-	const Card = ({place}) => {
-		return (
-			<TouchableOpacity
-				activeOpacity={0.8}
-				onPress={() => navigation.navigate('DetailsScreen', place)}>
-				<ImageBackground style={style.cardImage} source={{ uri: place.image }}>
-					<Text
-						style={{
-							color: COLORS.dark,
-							fontSize: 20,
-							fontWeight: 'bold',
-							marginTop: 10,
-						}}>
-						{place.name}
-					</Text>
-					<View
-						style={{
-							flex: 1,
-							justifyContent: 'space-between',
-							flexDirection: 'row',
-							alignItems: 'flex-end',
-						}}>
-						<View style={{flexDirection: 'row'}}>
-						<TouchableOpacity activeOpacity={0.8}
-							onPress={() => Linking.openURL(place.location)}>
-							<Icon name="place" size={20} color={COLORS.white} />
-						</TouchableOpacity>
-						</View>
-						<View style={{flexDirection: 'row'}}>
-							<Icon name="star" size={20} color={COLORS.white} />
-							<Text style={{marginLeft: 5, color: COLORS.white}}>{place.rating}</Text>
-						</View>
-					</View>
-				</ImageBackground>
-			</TouchableOpacity>
 		);
 	};
 
