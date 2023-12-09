@@ -32,7 +32,7 @@ git clone https://github.com/CPAD2023/CPAD2023SecATeam06.git
 2. Change to the project directory.
 
 ```bash
-cd recipe-recommendation-app
+cd CPAD2023SecATeam06
 ```
 
 3. Install project dependencies.
